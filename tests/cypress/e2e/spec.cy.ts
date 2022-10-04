@@ -16,7 +16,7 @@ describe('Web QA Usage', () => {
   })
 
   describe('Addition Button', () => {
-    let addCard
+    let addCard: Cypress.Chainable
 
     beforeEach(() => {
       addCard = cy.get('.card--add')
@@ -42,7 +42,7 @@ describe('Web QA Usage', () => {
     })
 
     describe('Button', () => {
-      let button
+      let button: Cypress.Chainable
 
       beforeEach(() => {
         button = addCard.get('button')

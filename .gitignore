@@ -24,9 +24,9 @@ dist-ssr
 *.sw?
 
 # Cypress
-cypress/downloads/*
-cypress/screenshots/*
-cypress/videos/*
+tests/cypress/downloads/*
+tests/cypress/screenshots/*
+tests/gcypress/videos/*
 
 # Keep directories with .gitkeep in them
 !/**/.gitkeep
