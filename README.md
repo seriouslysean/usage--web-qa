@@ -19,14 +19,18 @@ Pull this repo down locally and run `npm ci` to install the dependencies.
 ### Cypress
 
 * Run `npm run dev`
-* Run `npm run cypress:run` to run Cypress headlessly
-* (optional) Run `npm run test:cypress:open` to open Cypress
+* Run `npm run test:cypress` to run Cypress headlessly
+* (optional) Run `npm run test:cypress:open` to run Cypress
 
-For more information, see the [TestCafe documentation](https://testcafe.io/documentation/402635/getting-started).
+For more information, see the [Cypress documentation](https://docs.cypress.io/guides/getting-started/installing-cypress).
 
 ### TestCafe
 
-TODO
+* Run `npm run dev`
+* Run `npm run test:testcafe` to run TestCafe headlessly
+* (optional) Run `npm run test:testcafe:open` to run TestCafe
+
+For more information, see the [TestCafe documentation](https://testcafe.io/documentation/402635/getting-started).
 
 ### Playwright
 
