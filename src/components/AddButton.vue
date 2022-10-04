@@ -19,7 +19,7 @@ const hasMaxCount = computed(() => {
 </script>
 
 <template>
-  <div :class="{ 'card--error': hasMaxCount }" class="card">
+  <div :class="{ 'card--error': hasMaxCount }" class="card card--add">
     <h2>Add on Click ({{ count }})</h2>
     <button type="button" :disabled="hasMaxCount" @click="updateCount">{{ hasMaxCount ? 'DISABLED' : count }}</button>
     <p>Should start at {{ INITIAL_COUNT }} and stop at {{ MAX_COUNT }}</p>

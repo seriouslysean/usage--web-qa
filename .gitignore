@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cypress
+cypress/downloads/*
+cypress/screenshots/*
+cypress/videos/*
+
+# Keep directories with .gitkeep in them
+!/**/.gitkeep

@@ -18,7 +18,11 @@ Pull this repo down locally and run `npm ci` to install the dependencies.
 
 ### Cypress
 
-TODO
+* Run `npm run dev`
+* Run `npm run cypress:open` to open Cypress
+* (optional) Run `npm run cypress:run` to run Cypress headless
+
+For more information, see the [Cypress documentation](https://docs.cypress.io/guides/overview/why-cypress).
 
 ### TestCafe
 

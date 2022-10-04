@@ -6,6 +6,7 @@ import SubtractButton from './components/SubtractButton.vue'
 </script>
 
 <template>
+  <h1>Web QA Usage</h1>
   <AddButton />
   <SubtractButton />
 </template>

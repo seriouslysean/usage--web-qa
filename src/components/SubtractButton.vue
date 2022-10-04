@@ -19,7 +19,7 @@ const hasMinCount = computed(() => {
 </script>
 
 <template>
-    <div :class="{ 'card--error': hasMinCount }" class="card">
+    <div :class="{ 'card--error': hasMinCount }" class="card card--subtract">
     <h2>Subtract on Click ({{ count }})</h2>
     <button type="button" :disabled="hasMinCount" @click="updateCount">{{ hasMinCount ? 'DISABLED' : count }}</button>
     <p>Should start at {{ INITIAL_COUNT }} and stop at {{ MIN_COUNT }}</p>
