@@ -1,5 +1,6 @@
-// https://docs.cypress.io/api/commands
+/// <reference types="cypress" />
 
+// https://docs.cypress.io/api/commands
 describe('Web QA Usage', () => {
 
   beforeEach(() => {

@@ -2,13 +2,14 @@
   "name": "web-qa-usage",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "test:cypress:open": "cypress open --config-file tests/cypress/cypress.config.ts",
     "test:cypress": "cypress run --config-file tests/cypress/cypress.config.ts",
+    "test:testcafe:open": "testcafe firefox tests/testcafe/e2e/*.spec.js --config-file tests/testcafe/testcafe.config.js",
+    "test:testcafe": "testcafe firefox:headless tests/testcafe/e2e/*.spec.js --config-file tests/testcafe/testcafe.config.js"
   },
   "dependencies": {
     "vue": "^3.2.37"
