@@ -34,4 +34,8 @@ For more information, see the [TestCafe documentation](https://testcafe.io/docum
 
 ### Playwright
 
-TODO
+* Run `npm run dev`
+* Run `npm run test:playwright` to run Playwright headlessly
+* (optional) Run `npm run test:playwright:open` to run Playwright
+
+For more information, see the [Playwright documentation](https://playwright.dev/docs/intro).
