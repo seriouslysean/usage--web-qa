@@ -36,6 +36,29 @@ test('ADDITION BUTTON: should contain a button', async t => {
     await t.expect(exists).ok();
 });
 
+test('ADDITION BUTTON: should increment count when button is clicked', async t => {
+    const button = Selector(additionSelectors.button);
+    await t.click(button)
+        .expect(button.textContent)
+        .contains('1');
+});
+
+test('ADDITION BUTTON: should be disabled after 10 clicks', async t => {
+    const button = Selector(additionSelectors.button);
+
+    // 10 clicks
+    for (let i=0;i<10;i++) {
+        await t.click(button);
+    }
+    await t.expect(button.textContent)
+        .contains('DISABLED');
+
+    // 11 clicks
+    await t.click(button)
+        .expect(button.textContent)
+        .contains('DISABLED');
+});
+
 // TestCafe does not allow nesting tests
 // SUBTRACTION CARD
 const subtractSelectors = {
@@ -50,17 +73,40 @@ test('SUBTRACTION BUTTON: should contain a card', async t => {
     await t.expect(exists).ok();
 });
 
-test('ADDITION BUTTON: should contain a title', async t => {
+test('SUBTRACTION BUTTON: should contain a title', async t => {
     const exists = Selector(subtractSelectors.title).exists;
     await t.expect(exists).ok();
 });
 
-test('ADDITION BUTTON: should contain a paragraph', async t => {
+test('SUBTRACTION BUTTON: should contain a paragraph', async t => {
     const exists = Selector(subtractSelectors.paragraph).exists;
     await t.expect(exists).ok();
 });
 
-test('ADDITION BUTTON: should contain a button', async t => {
+test('SUBTRACTION BUTTON: should contain a button', async t => {
     const exists = Selector(subtractSelectors.button).exists;
     await t.expect(exists).ok();
+});
+
+test('SUBTRACTION BUTTON: should decrement count when button is clicked', async t => {
+    const button = Selector(subtractSelectors.button);
+    await t.click(button)
+        .expect(button.textContent)
+        .contains('9');
+});
+
+test('SUBTRACTION BUTTON: should be disabled after 10 clicks', async t => {
+    const button = Selector(subtractSelectors.button);
+
+    // 10 clicks
+    for (let i=0;i<10;i++) {
+        await t.click(button);
+    }
+    await t.expect(button.textContent)
+        .contains('DISABLED');
+
+    // 11 clicks
+    await t.click(button)
+        .expect(button.textContent)
+        .contains('DISABLED');
 });

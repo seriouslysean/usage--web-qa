@@ -66,11 +66,11 @@ describe('Web QA Usage', () => {
         for (let i=0;i<10;i++) {
           button.click()
         }
-        button.should('include.text', 'disabled')
+        button.should('include.text', 'DISABLED')
 
         // 11 clicks
         button.click()
-        button.should('include.text', 'disabled')
+        button.should('include.text', 'DISABLED')
       })
     })
 
@@ -127,11 +127,11 @@ describe('Web QA Usage', () => {
         for (let i=0;i<10;i++) {
           button.click()
         }
-        button.should('include.text', 'disabled')
+        button.should('include.text', 'DISABLED')
 
         // 11 clicks
         button.click()
-        button.should('include.text', 'disabled')
+        button.should('include.text', 'DISABLED')
       })
     })
 
