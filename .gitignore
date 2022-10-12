@@ -30,3 +30,6 @@ tests/gcypress/videos/*
 
 # Keep directories with .gitkeep in them
 !/**/.gitkeep
+/test-results/
+/playwright-report/
+/playwright/.cache/
