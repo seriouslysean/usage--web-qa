@@ -43,6 +43,41 @@ test.describe('Web QA Usage', () => {
       await expect(el).toHaveText('Should start at 0 and stop at 10');
     });
 
+    test.describe('Button', () => {
+      let button;
+
+      test.beforeAll(async () => {
+        button = await addCard.locator('button');
+      });
+
+      test('should contain a button', async () => {
+        await expect(button).toHaveCount(1);
+        await expect(button).toHaveText('0');
+      });
+
+      test('should increment count when button is clicked', async () => {
+        // One click
+        await button.click();
+        await expect(button).toHaveText('1');
+      });
+
+      test('should be disabled after 10 clicks', async () => {
+        // Reload the page to reset the button counts
+        page.reload();
+
+        // 10 clicks
+        for (let i=0;i<10;i++) {
+          await button.click();
+        }
+        await expect(button).toBeDisabled();
+        await expect(button).toHaveText('DISABLED');
+
+        // 11 clicks
+        // TODO: Is there any way to test an 11th click?
+        // Probably not needed
+      });
+    });
+
   });
 
   test.describe('Subtraction Button', () => {
@@ -68,5 +103,39 @@ test.describe('Web QA Usage', () => {
       await expect(el).toHaveText('Should start at 10 and stop at 0');
     });
 
+    test.describe('Button', () => {
+      let button;
+
+      test.beforeAll(async () => {
+        button = await subtractCard.locator('button');
+      });
+
+      test('should contain a button', async () => {
+        await expect(button).toHaveCount(1);
+        await expect(button).toHaveText('10');
+      });
+
+      test('should decrement count when button is clicked', async () => {
+        // One click
+        await button.click();
+        await expect(button).toHaveText('9');
+      });
+
+      test('should be disabled after 10 clicks', async () => {
+        // Reload the page to reset the button counts
+        page.reload();
+
+        // 10 clicks
+        for (let i=0;i<10;i++) {
+          await button.click();
+        }
+        await expect(button).toBeDisabled();
+        await expect(button).toHaveText('DISABLED');
+
+        // 11 clicks
+        // TODO: Is there any way to test an 11th click?
+        // Probably not needed
+      });
+    });
   });
 });
