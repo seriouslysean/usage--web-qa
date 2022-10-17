@@ -20,7 +20,7 @@ test.describe('Web QA Usage', () => {
     await expect(el).toHaveText('Web QA Usage');
   });
 
-  test.describe('Addition Button', () => {
+  test.describe('Addition Card', () => {
     let addCard;
 
     test.beforeAll(async () => {
@@ -80,7 +80,7 @@ test.describe('Web QA Usage', () => {
 
   });
 
-  test.describe('Subtraction Button', () => {
+  test.describe('Subtraction Card', () => {
     let subtractCard;
 
     test.beforeAll(async () => {

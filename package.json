@@ -11,15 +11,19 @@
     "test:testcafe:open": "testcafe chrome tests/testcafe/e2e/*.spec.js --config-file tests/testcafe/testcafe.config.js",
     "test:testcafe": "testcafe chrome:headless tests/testcafe/e2e/*.spec.js --config-file tests/testcafe/testcafe.config.js",
     "test:playwright:open": "playwright test --config tests/playwright/playwright.config.js",
-    "test:playwright": "QAU_HEADLESS=true playwright test --config tests/playwright/playwright.config.js"
+    "test:playwright": "QAU_HEADLESS=true playwright test --config tests/playwright/playwright.config.js",
+    "lint": "eslint --ext .js,.vue ."
   },
   "dependencies": {
+    "pinia": "^2.0.23",
     "vue": "^3.2.37"
   },
   "devDependencies": {
     "@playwright/test": "^1.27.1",
     "@vitejs/plugin-vue": "^3.1.0",
     "cypress": "^10.9.0",
+    "eslint": "^8.25.0",
+    "eslint-plugin-vue": "^9.6.0",
     "playwright": "^1.27.1",
     "testcafe": "^2.0.1",
     "typescript": "^4.6.4",

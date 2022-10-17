@@ -14,7 +14,7 @@ describe('Web QA Usage', () => {
       .should('include.text', 'Web QA Usage')
   })
 
-  describe('Addition Button', () => {
+  describe('Addition Card', () => {
     let addCard;
 
     beforeEach(() => {
@@ -74,7 +74,7 @@ describe('Web QA Usage', () => {
 
   })
 
-  describe('Subtraction Button', () => {
+  describe('Subtraction Card', () => {
     let subtractCard
 
     beforeEach(() => {
