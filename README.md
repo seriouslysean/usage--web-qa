@@ -39,3 +39,13 @@ For more information, see the [TestCafe documentation](https://testcafe.io/docum
 * (optional) Run `npm run test:playwright:open` to run Playwright
 
 For more information, see the [Playwright documentation](https://playwright.dev/docs/intro).
+
+
+## FAQ
+
+> The test suites won't run, any idea why?
+
+You're probably missing some system dependencies (browsers, libraries, etc).
+
+- [Cypress has some documentation on it](https://docs.cypress.io/guides/continuous-integration/introduction#Dependencies)
+- [Playwright can install them automatically](https://playwright.dev/docs/cli#install-system-dependencies)
