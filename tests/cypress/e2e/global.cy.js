@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 // https://docs.cypress.io/api/commands
 describe('Web QA Usage', () => {
 
@@ -17,7 +15,7 @@ describe('Web QA Usage', () => {
   })
 
   describe('Addition Button', () => {
-    let addCard: Cypress.Chainable
+    let addCard;
 
     beforeEach(() => {
       addCard = cy.get('.card--add')
@@ -43,7 +41,7 @@ describe('Web QA Usage', () => {
     })
 
     describe('Button', () => {
-      let button: Cypress.Chainable
+      let button;
 
       beforeEach(() => {
         button = addCard.get('button')

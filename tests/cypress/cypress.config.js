@@ -1,12 +1,12 @@
-import { defineConfig } from "cypress";
+const { defineConfig } = require("cypress");
 
-export default defineConfig({
+module.exports = defineConfig({
   e2e: {
     // TODO: Could potentially add support for the production build on port 4173
     baseUrl: 'http://127.0.0.1:5173/',
-    specPattern: 'tests/cypress/e2e/**/*.cy.ts',
+    specPattern: 'tests/cypress/e2e/**/*.cy.js',
     excludeSpecPattern: '',
-    supportFile: 'tests/cypress/support/e2e.ts',
+    supportFile: 'tests/cypress/support/e2e.js',
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
