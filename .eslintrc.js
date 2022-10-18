@@ -8,6 +8,8 @@ module.exports = {
     ],
     parser: 'vue-eslint-parser',
     rules: {
+        semi: ['error', 'always'],
+        'comma-dangle': ['error', 'only-multiline'],
         'vue/html-indent': ['error', 4],
     },
 }

@@ -1,7 +1,7 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
 
-const INITIAL_COUNT = 10
+const INITIAL_COUNT = 10;
 const MIN_COUNT = 0;
 const count = ref(INITIAL_COUNT);
 
@@ -15,7 +15,7 @@ function updateCount() {
 
 const hasMinCount = computed(() => {
     return count.value === MIN_COUNT;
-})
+});
 </script>
 
 <template>

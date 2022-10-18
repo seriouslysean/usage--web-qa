@@ -1,9 +1,9 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed } from 'vue';
 
-const INITIAL_COUNT = 0
-const MAX_COUNT = 10
-const count = ref(INITIAL_COUNT)
+const INITIAL_COUNT = 0;
+const MAX_COUNT = 10;
+const count = ref(INITIAL_COUNT);
 
 function updateCount() {
   // Not allowed to increment more than 10
@@ -14,8 +14,8 @@ function updateCount() {
 }
 
 const hasMaxCount = computed(() => {
-  return count.value === MAX_COUNT
-})
+  return count.value === MAX_COUNT;
+});
 </script>
 
 <template>

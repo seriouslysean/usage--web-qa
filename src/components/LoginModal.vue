@@ -1,16 +1,24 @@
 <script setup>
 import { defineEmits, ref, onMounted } from 'vue';
+
 import { useUserStore, MOCK_USER } from '@/stores/user';
 
 const emailInput = ref(null);
 const email = ref("");
 const password = ref("");
+const hasError = ref(false);
 
 const emit = defineEmits(['close']);
 const userStore = useUserStore();
 
 function handleFormSubmit() {
-    debugger;
+    userStore.login(email, password);
+
+    if (!userStore.loggedIn) {
+        hasError.value = true;
+        return;
+    }
+
     emit('close');
 }
 
@@ -31,23 +39,29 @@ onMounted(() => emailInput.value.focus());
                 Close
             </button>
 
-            <h2>Login</h2>
+            <h2 class="login-modal__heading">
+                Web QA Login
+            </h2>
 
-            <form @submit.stop="handleFormSubmit">
-                <h3>Email</h3>
+            <form @submit.prevent="handleFormSubmit">
+                <h3 class="login-modal__input-heading">
+                    Email
+                </h3>
                 <input
                     ref="emailInput"
                     type="email"
                     name="email"
                     placeholder="email"
-                    v-bind="email"
+                    v-model="email"
                     autocomplete="email"
                     class="login-modal__input"
                 >
-                <h3>Password</h3>
+                <h3 class="login-modal__input-heading">
+                    Password
+                </h3>
                 <input
                     type="password"
-                    v-bind="password"
+                    v-model="password"
                     placeholder="password"
                     autocomplete="current-password"
                     class="login-modal__input"
@@ -74,12 +88,12 @@ onMounted(() => emailInput.value.focus());
     background: #242424;
     max-width: 400px;
     width: 100%;
-    padding: 3em;
+    padding: 5em 3em;
     position: relative;
     z-index: 10;
 
     &__outer {
-        background: rgba(0, 0, 0, 0.4);
+        background: rgba(0, 0, 0, 0.75);
         position: fixed;
         top: 0;
         right: 0;
@@ -87,11 +101,23 @@ onMounted(() => emailInput.value.focus());
         left: 0;
     }
 
+    &__heading {
+        font-size: 2em;
+    }
+
     &__close {
         position: absolute;
         top: 0;
         right: 0;
         margin: 1em;
+    }
+
+    &__input-heading {
+        margin-bottom: 0;
+        text-align: left;
+        text-transform: lowercase;
+        position: relative;
+        bottom: -6px;
     }
 
     &__input {

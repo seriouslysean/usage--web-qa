@@ -5,7 +5,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--font-color);
   background-color: #242424;
 
   font-synthesis: none;
@@ -13,15 +13,24 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  // Colors
+  --font-color: rgba(255, 255, 255, 0.87);
+  --font-color--hover: rgba(255, 255, 255, 1);
+}
+
+::placeholder {
+  opacity: 0.6;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--font-color);
+  text-decoration: none;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--font-color--hover);
+  text-decoration: underline;
 }
 
 body {
@@ -54,7 +63,7 @@ button {
   margin-bottom: 1em;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--font-color);
 }
 button:focus,
 button:focus-visible {
