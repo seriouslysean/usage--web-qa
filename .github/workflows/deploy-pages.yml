@@ -2,13 +2,13 @@ name: Deploy App to Pages
 
 on:
   push:
-    # We should only push on known files that could adjust storybook
+    # We should only push on known files that could change the app
     # If there is an outlier, the workflow_dispatch key will let us deploy manually
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-including-paths
     paths:
+      - '.github/workflows/deploy-pages.yml'
       - 'public/**'
       - 'src/**'
-      - '.github/workflows/deploy-pages.yml'
       - 'package.json'
       - 'vite.config.js'
     branches: ['main']
