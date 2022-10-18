@@ -31,7 +31,12 @@ onMounted(() => emailInput.value.focus());
 
 <template>
     <div class="login-modal__outer">
-        <div class="login-modal">
+        <div
+            class="login-modal"
+            :class="{
+                'has-error': hasError === true,
+            }"
+        >
             <button
                 class="login-modal__close"
                 @click="handleCloseButtonClick"
@@ -65,6 +70,7 @@ onMounted(() => emailInput.value.focus());
                     placeholder="password"
                     autocomplete="current-password"
                     class="login-modal__input"
+                    minlength="8"
                 >
                 <button
                     type="submit"
@@ -73,6 +79,13 @@ onMounted(() => emailInput.value.focus());
                     Login
                 </button>
             </form>
+
+            <p
+                v-if="hasError === true"
+                class="login-modal__message"
+            >
+                Error logging in, please try again!
+            </p>
 
             <div class="login-modal__note">
                 <span>Test Email: <code>{{ MOCK_USER.email }}</code></span>
@@ -121,13 +134,24 @@ onMounted(() => emailInput.value.focus());
     }
 
     &__input {
+        border: 1px solid transparent;
         display: block;
         width: 100%;
         padding: 1em;
+
+        .has-error &,
+        &:invalid {
+            border: 1px solid red;
+        }
     }
 
     &__submit {
         margin-bottom: 0;
+    }
+
+    &__message {
+        // Use margin top since the element isn't always visible
+        margin-top: 2em;
     }
 
     &__note {
