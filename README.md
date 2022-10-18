@@ -4,7 +4,10 @@ Web QA Usage is an example app to showcase how various End to End testing framew
 
 ## Building & Running
 
-Pull this repo down locally and run `npm ci` to install the dependencies.
+Pull this repo down locally and run `npm ci` to install the dependencies. Due to Vite, Node 16+ is a hard requirement. You can either [download Node directly](https://nodejs.org/) or use a node version manager like [n](https://github.com/tj/n) or [nvm](https://github.com/nvm-sh/nvm).
+
+There is also an `.nvmrc` file so that you can use `n auto` or `nvm use` to automatically set your node version.
+
 ### Development Build
 
 * Run `npm run dev` to serve a development build.
