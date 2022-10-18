@@ -2,36 +2,57 @@ name: Deploy App to Pages
 
 on:
   push:
+    # We should only push on known files that could adjust storybook
+    # If there is an outlier, the workflow_dispatch key will let us deploy manually
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-including-paths
     paths:
       - 'public/**'
       - 'src/**'
+      - 'package.json'
+      - 'vite.config.js'
     branches: [$default-branch]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-    
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# See: https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 # Allow one concurrent deployment
 # See: https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idconcurrency
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
+# Based on https://github.com/actions/starter-workflows/blob/main/pages/static.yml
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16.17.0"
+          cache: 'npm'
+      - name: Install node modules
+        run: npm ci
+      - name: Build App
+        run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      # https://github.com/actions/upload-artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload app build folder contents
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
