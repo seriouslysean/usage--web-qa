@@ -1,13 +1,13 @@
 module.exports = {
+    env: {
+        node: true,
+    },
     extends: [
-        // add more generic rulesets here, such as:
-        // 'eslint:recommended',
-        'plugin:vue/vue3-recommended',
-        // 'plugin:vue/vue3-essential', // This option doesn't impose formatting rules
-        // 'plugin:vue/vue3-strongly-recommended', // This option imposes formatting rules on your code to improve readability
+        'eslint:recommended',
+        'plugin:vue/vue3-strongly-recommended'
     ],
+    parser: 'vue-eslint-parser',
     rules: {
-        // override/add rules settings here, such as:
-        // 'vue/no-unused-vars': 'error'
-    }
+        'vue/html-indent': ['error', 4],
+    },
 }

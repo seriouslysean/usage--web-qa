@@ -32,6 +32,10 @@ body {
   min-height: 100vh;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 1em;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -47,6 +51,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-bottom: 1em;
 }
 button:hover {
   border-color: #646cff;
@@ -61,6 +66,12 @@ button:disabled:focus-visible {
   border-color: transparent;
   outline: none;
   cursor: not-allowed;
+}
+
+input {
+  width: 100%;
+  background: #1a1a1a;
+  margin-bottom: 1em;
 }
 
 .card {
@@ -86,4 +97,9 @@ button:disabled:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+code {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0 0.2em;
 }
