@@ -1,10 +1,12 @@
 <script setup>
-import { defineEmits } from 'vue';
+import { useRouter } from 'vue-router';
 
 import { useUserStore } from '@/stores/user';
 
 const userStore = useUserStore();
 const emit = defineEmits(['login']);
+const router = useRouter();
+const links = router.getRoutes().map(({ path, name }) => ({ path, name }));
 
 function handleModalOpen() {
     emit('login');
@@ -13,34 +15,22 @@ function handleModalOpen() {
 function handleLogout() {
     userStore.logout();
 }
+
 </script>
 
 <template>
     <header class="site-header">
         <nav>
             <ul class="site-header__links">
-                <li>
+                <li
+                    v-for="link in links"
+                    :key="link.name"
+                >
                     <router-link
-                        to="/"
+                        :to="link.path"
                         class="site-header__link"
                     >
-                        Home
-                    </router-link>
-                </li>
-                <li>
-                    <router-link
-                        to="/todo"
-                        class="site-header__link"
-                    >
-                        Todo
-                    </router-link>
-                </li>
-                <li>
-                    <router-link
-                        to="/about"
-                        class="site-header__link"
-                    >
-                        About
+                        {{ link.name }}
                     </router-link>
                 </li>
                 <li>

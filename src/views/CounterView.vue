@@ -4,7 +4,7 @@ import SubtractCard from '@/components/SubtractCard.vue';
 </script>
 
 <template>
-    <h1>Web QA Usage</h1>
+    <h1>Counter</h1>
     <AddCard />
     <SubtractCard />
 </template>

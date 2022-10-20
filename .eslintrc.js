@@ -13,4 +13,10 @@ module.exports = {
         'vue/html-indent': ['error', 4],
         'vue/script-setup-uses-vars': 'error',
     },
+    overrides: [{
+        files: 'tests/cypress/**/*.js',
+        env: {
+            'cypress/globals': true,
+        },
+    }],
 };

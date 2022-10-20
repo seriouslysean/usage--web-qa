@@ -1,5 +1,5 @@
 <script setup>
-import { defineEmits, ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
 import { useUserStore, MOCK_USER } from '@/stores/user';
 

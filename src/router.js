@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-import HomeView from '@/views/HomeView.vue';
+import CounterView from '@/views/CounterView.vue';
 import TodoView from '@/views/TodoView.vue';
 import AboutView from '@/views/AboutView.vue';
 
@@ -8,16 +8,19 @@ const router = createRouter({
     history: createWebHashHistory(),
     routes: [
         {
+            name: 'About',
             path: '/',
-            component: HomeView,
+            component: AboutView,
         },
         {
+            name: 'Counter',
+            path: '/counter',
+            component: CounterView,
+        },
+        {
+            name: 'Todo',
             path: '/todo',
             component: TodoView,
-        },
-        {
-            path: '/about',
-            component: AboutView,
         },
     ],
 });

@@ -1,10 +1,13 @@
-import { Selector } from 'testcafe';
+import { fixture, Selector, test } from 'testcafe';
 
-fixture`Web QA Usage`
+import config from '../testcafe.config.js';
+
+fixture`Counter`
+    .page`${config.baseUrl}/#/counter`
 
 test('should contain a title', async t => {
-    const heading = await Selector('h1')
-    await t.expect(heading.innerText).eql('Web QA Usage')
+    const heading = Selector('h1');
+    await t.expect(heading.innerText).eql('Counter');
 });
 
 // TestCafe does not allow nesting tests
@@ -14,7 +17,7 @@ const additionSelectors = {
     title: '.card--add h2',
     paragraph: '.card--add p',
     button: '.card--add button',
-}
+};
 
 test('ADDITION CARD: should contain a card', async t => {
     const exists = Selector(additionSelectors.card).exists;
@@ -66,7 +69,7 @@ const subtractSelectors = {
     title: '.card--subtract h2',
     paragraph: '.card--subtract p',
     button: '.card--subtract button',
-}
+};
 
 test('SUBTRACTION CARD: should contain a card', async t => {
     const exists = Selector(subtractSelectors.card).exists;
