@@ -10,7 +10,7 @@ on:
       - 'public/**'
       - 'src/**'
       - 'package.json'
-      - 'vite.config.js'
+      - 'vite.config.ts'
     branches: ['main']
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

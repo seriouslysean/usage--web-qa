@@ -11,5 +11,6 @@ module.exports = {
         semi: ['error', 'always'],
         'comma-dangle': ['error', 'only-multiline'],
         'vue/html-indent': ['error', 4],
+        'vue/script-setup-uses-vars': 'error',
     },
-}
+};
