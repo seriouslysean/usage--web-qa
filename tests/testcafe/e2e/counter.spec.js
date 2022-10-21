@@ -1,9 +1,9 @@
 import { fixture, Selector, test } from 'testcafe';
 
-import config from '../testcafe.config.js';
+import { baseUrl } from '../testcafe.config.js';
 
 fixture`Counter`
-    .page`${config.baseUrl}/#/counter`
+    .page`${baseUrl}/#/counter`
 
 test('should contain a title', async t => {
     const heading = Selector('h1');

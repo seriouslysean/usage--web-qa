@@ -1,6 +1,6 @@
 # Web QA Usage
 
-Web QA Usage is an example app to showcase how various End to End testing frameworks can be used. It currently supports Cypress, TestCafe and Playwright. [The test app is currently live on GitHub pages.](https://seriouslysean.github.io/web-qa-usage/#/).
+Web QA Usage is an example app to showcase how various End to End testing frameworks can be used. It currently supports Cypress, TestCafe and Playwright. [The test app is currently live on GitHub pages.](https://seriouslysean.github.io/web-qa-usage/#/)
 
 ## Building & Running
 
